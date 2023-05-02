@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topics</title>
+  {% extends "base.html" %}
+</head>
+<body>
+{% block content %}
+<h3><p>Topics<p></h3>
+<p>{{username}}<p>
+  <ul>
+  {% for topics in topic %}
+  <h3><li><a href="{% url 'entry' topics.id %}">{{topics}}</a> </li></h3>
+    {% empty %}
+  <li>No topics have been added yet </li>
+  {% endfor%}
+</ul>
+<h2><a href="{% url 'addtopic' %}">ADD_TOPIC</a></h2>
+{% endblock content %}
+</body>
+</html>

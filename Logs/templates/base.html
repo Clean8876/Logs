@@ -1,0 +1,52 @@
+ {% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="style.css">
+    <title>Learning Logs
+    </title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'index' %}"style="position: absolute;bottom: 7px;left: 9px;">Learning Log</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" {% if user.is_authenticated %} href="{% url 'topic' %}"style="position: absolute;bottom: 7px;left: 142px;">Topic</a>&nbsp;
+        <h1 style="position:relative;top:0px;left:288px;font-size:22px;color:blue">Hello,{{user.username}}</h1>
+
+
+        <li class="nav-item">
+        <a class="nav-link"  href="{% url 'Logout_user' %}"style="position: absolute;bottom: 7px;left: 217px;">Logout</a>&nbsp;
+
+    {% else %}
+        <li class="nav-item">
+        <a class="nav-link"  href="{% url 'register' %}"style="position: absolute;bottom: 7px;left: 142px;">Register</a>&nbsp;&nbsp;
+
+        <li class="nav-item">
+        <a class="nav-link"  href="{% url 'loginuser' %}"style="position: absolute;bottom: 7px;left: 217px;text-align: left;vertical-align: bottom;">Login</a>&nbsp;&nbsp;
+
+    {% endif %}
+      </li>
+
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+
+
+{% block content %}{% endblock %}
+</body>
+</html>

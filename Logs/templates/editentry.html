@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editentry</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+<a href="{% url 'topic' %}">{{topic}}</a>
+<p>ADD NEW Entry</p>
+<form action="{% url 'editentry' topic.id %}" method='POST'>
+  {% csrf_token %}
+  {{ form.as_p}}
+  <button name="submit">SAVE CHANGES</button>
+</form>
+{% endblock %}
+</body>
+</html>
